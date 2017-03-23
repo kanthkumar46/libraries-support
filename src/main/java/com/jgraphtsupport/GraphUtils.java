@@ -2,9 +2,10 @@ package com.jgraphtsupport;
 
 import javaslang.Function1;
 import javaslang.collection.Array;
+import javaslang.control.Option;
 import org.jgrapht.Graph;
 import org.jgrapht.UndirectedGraph;
-import org.jgrapht.graph.SimpleGraph;
+import org.jgrapht.graph.Pseudograph;
 
 import java.util.Comparator;
 import java.util.Optional;
@@ -19,7 +20,7 @@ public class GraphUtils {
      * @return undirected graph object
      */
     public static UndirectedGraph<Vertex, Edge> convertToGraph(Iterable<String> edges) {
-        final UndirectedGraph<Vertex, Edge> graph = new SimpleGraph<>(Edge.class);
+        final UndirectedGraph<Vertex, Edge> graph = new Pseudograph<>(Edge.class);
 
         Function1<Edge, Boolean> addEdgeToGraph = edge -> addEdgeWithVertices(graph, edge);
 
@@ -30,10 +31,24 @@ public class GraphUtils {
         return graph;
     }
 
-    public static <T extends AbstractVertex, U extends AbstractEdge<T>> Optional<Integer> getMaxVertexId(Graph<T, U> graph) {
-        return graph.vertexSet().stream()
+    public static <T extends AbstractVertex, U extends AbstractEdge<T>> Option<Integer> getMaxVertexId(Graph<T, U> graph) {
+        Optional<Integer> optional = graph.vertexSet().stream()
                 .max(Comparator.comparingInt(AbstractVertex::getVertexId))
                 .map(AbstractVertex::getVertexId);
+        return Option.ofOptional(optional);
+    }
+
+    public static <T extends AbstractVertex, U extends AbstractEdge<T>> Option<Integer> getMaxDegree(UndirectedGraph<T, U> graph) {
+        Optional<Integer> optional = graph.vertexSet().stream()
+                .map(graph::degreeOf)
+                .max(Integer::compareTo);
+        return Option.ofOptional(optional);
+    }
+
+    public static <T extends AbstractVertex, U extends AbstractEdge<T>> Array<U> getLoops(Graph<T, U> graph) {
+        return graph.edgeSet().stream()
+                .filter(e -> graph.getEdgeSource(e).equals(graph.getEdgeTarget(e)))
+                .collect(Array.collector());
     }
 
     /**
@@ -42,8 +57,8 @@ public class GraphUtils {
      *
      * @param graph
      * @param edge
-     * @param <T> Vertex
-     * @param <U> Edge
+     * @param <T> Vertex type
+     * @param <U> Edge type
      * @return true if edge is added succesfully to the graph
      */
     public static <T extends AbstractVertex, U extends AbstractEdge<T>> boolean addEdgeWithVertices(Graph<T, U> graph, U edge){
