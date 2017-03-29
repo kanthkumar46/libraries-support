@@ -1,4 +1,4 @@
-package com.immutablessupport.styles;
+package edu.immutablessupport.styles;
 
 import org.immutables.value.Value;
 import org.immutables.value.Value.Style.ImplementationVisibility;

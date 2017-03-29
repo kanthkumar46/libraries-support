@@ -1,6 +1,9 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
-import com.junitsupport.TestSetup;
+import edu.jgraphtsupport.Edge;
+import edu.jgraphtsupport.GraphUtils;
+import edu.jgraphtsupport.Vertex;
+import edu.junitsupport.TestSetup;
 import javaslang.collection.Array;
 import javaslang.control.Option;
 import org.jgrapht.UndirectedGraph;

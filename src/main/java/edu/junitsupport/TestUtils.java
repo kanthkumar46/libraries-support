@@ -1,4 +1,4 @@
-package com.junitsupport;
+package edu.junitsupport;
 
 import java.io.InputStream;
 

@@ -1,4 +1,4 @@
-package com.immutablessupport.styles;
+package edu.immutablessupport.styles;
 
 import org.immutables.value.Value;
 import org.immutables.value.Value.Style.ImplementationVisibility;
@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.PACKAGE, ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
-@Value.Style(deepImmutablesDetection = true, visibility = ImplementationVisibility.PUBLIC)
-public @interface BuilderStyle {
+@Value.Style(
+        visibility = ImplementationVisibility.PUBLIC,
+        defaults = @Value.Immutable(singleton = true, builder = false))
+public @interface SingletonStyle {
 }

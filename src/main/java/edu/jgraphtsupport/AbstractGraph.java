@@ -1,4 +1,4 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
 import javaslang.Tuple;
 import javaslang.collection.HashMap;

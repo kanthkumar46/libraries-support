@@ -1,4 +1,4 @@
-package com.junitsupport;
+package edu.junitsupport;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

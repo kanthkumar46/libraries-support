@@ -1,4 +1,4 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
 import org.immutables.value.Value;
 

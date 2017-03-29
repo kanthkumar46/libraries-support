@@ -1,4 +1,4 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
 /**
  * Created by KanthKumar on 3/3/17.

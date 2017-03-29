@@ -1,7 +1,7 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
 
-import com.immutablessupport.styles.TupleStyle;
+import edu.immutablessupport.styles.TupleStyle;
 import org.immutables.value.Value;
 
 /**

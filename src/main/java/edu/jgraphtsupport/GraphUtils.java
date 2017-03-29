@@ -1,4 +1,4 @@
-package com.jgraphtsupport;
+package edu.jgraphtsupport;
 
 import javaslang.Function1;
 import javaslang.collection.Array;
