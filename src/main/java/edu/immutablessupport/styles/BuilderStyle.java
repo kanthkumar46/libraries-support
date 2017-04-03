@@ -1,5 +1,6 @@
 package edu.immutablessupport.styles;
 
+import org.immutables.javaslang.encodings.JavaslangEncodingEnabled;
 import org.immutables.value.Value;
 import org.immutables.value.Value.Style.ImplementationVisibility;
 
@@ -13,6 +14,7 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.PACKAGE, ElementType.TYPE})
 @Retention(RetentionPolicy.CLASS)
+@JavaslangEncodingEnabled
 @Value.Style(deepImmutablesDetection = true, visibility = ImplementationVisibility.PUBLIC)
 public @interface BuilderStyle {
 }

@@ -1,8 +1,5 @@
 package edu.jgraphtsupport;
 
-import edu.jgraphtsupport.Edge;
-import edu.jgraphtsupport.GraphUtils;
-import edu.jgraphtsupport.Vertex;
 import edu.junitsupport.TestSetup;
 import javaslang.collection.Array;
 import javaslang.control.Option;

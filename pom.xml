@@ -35,6 +35,11 @@
             <version>${javaslang.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.immutables.javaslang</groupId>
+            <artifactId>javaslang-encodings</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
             <version>${jgrapht.version}</version>
